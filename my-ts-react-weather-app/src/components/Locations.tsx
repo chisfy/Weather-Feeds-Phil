@@ -5,11 +5,11 @@ export default function Locations() {
     <div className="locations">
       <h3>Locations</h3>
       <ul>
-        <li>London</li>
-        <li>New York</li>
-        <li>Hong Kong</li>
-        <li>Iceland</li>
-        <li>Hawaii</li>
+        <li><button>London</button></li>
+        <li><button>New York</button></li>
+        <li><button>Hong Kong</button></li>
+        <li><button>Hawaii</button></li>
+        <li><button>Los Angeles</button></li>
       </ul>
     </div>
   )

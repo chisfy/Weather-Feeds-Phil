@@ -5,7 +5,7 @@ export default function Footer() {
     <footer>
         <p>Created by Fyza</p>
         <p>Powered by <a href="https://open-meteo.com/">Open-Meteo</a></p>
-        <p>Inspired by SoC Hackthon</p>
+        <p>Inspired by SoC Hackthon & Somebody Feed Phil! </p>
     </footer>
   )
 }
