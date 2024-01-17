@@ -2,14 +2,14 @@ import React from 'react';
 import './App.css';
 import Time from  './components/Time.tsx'
 import Logo from './components/Logo.tsx'
+import Footer from './components/Footer.tsx';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
         <Logo />
         <Time />
-      </header>
+      <Footer />
     </div>
   );
 }
