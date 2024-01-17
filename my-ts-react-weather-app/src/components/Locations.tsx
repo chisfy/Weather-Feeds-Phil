@@ -6,7 +6,7 @@ export default function Locations() {
 //put locations in a array and map through them
 //use the map to create the buttons
 //useContext to store the fetched data
-//card shows the data anbd siaplys temperature and weather
+//card shows the data and displays temperature and weather
 
   return (
     <div className="locations">
