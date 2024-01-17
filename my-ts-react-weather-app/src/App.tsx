@@ -1,12 +1,12 @@
 import React from 'react';
 import './App.css';
-import Hello from  './components/Hello.tsx'
+import Time from  './components/Time.tsx'
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <Hello name="Fyza" />
+        <Time />
       </header>
     </div>
   );
