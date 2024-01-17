@@ -5,6 +5,7 @@ import Logo from './components/Logo.tsx'
 import Footer from './components/Footer.tsx';
 import InfoText from './components/InfoText.tsx';
 import Locations from './components/Locations.tsx';
+import Card from './components/Card.tsx';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Time />
         <InfoText />
         <Locations />
+        <Card />
         <Footer />
     </div>
   );
