@@ -69,6 +69,7 @@ export function LocationProvider({ children }: React.PropsWithChildren<{}>) {
       const [longitude, setLongitude] = useState(undefined!);
       const [latitude, setLatitude] = useState(undefined!);
       const [showCard, setShowCard] = useState(false);
+      const [index, setIndex] = useState(undefined!);
 
     //need to experiment with this
     //put locations in a array and map through them
@@ -87,7 +88,7 @@ export function LocationProvider({ children }: React.PropsWithChildren<{}>) {
 
     
     return (
-        <LocationContext.Provider value={{ locations, setLocations, longitude, setLongitude, latitude, setLatitude, showCard, setShowCard }}>
+        <LocationContext.Provider value={{ locations, setLocations, longitude, setLongitude, latitude, setLatitude, showCard, setShowCard, index, setIndex }}>
         {children}
         </LocationContext.Provider>
     );
