@@ -36,7 +36,7 @@ export function LocationProvider({ children }: React.PropsWithChildren<{}>) {
           address: "Tennyson 133, Polanco, Polanco IV Secc, 11570 Ciudad de México, CDMX, Mexico"
         },
         {
-          longitiude: 34.7806,
+          longitude: 34.7806,
           latitude: 32.0809,
           city: "Tel Aviv",
           country: "Israel",
@@ -66,6 +66,10 @@ export function LocationProvider({ children }: React.PropsWithChildren<{}>) {
           address: "2301 Orleans Ave, New Orleans, LA 70119, United States"
         },
       ]);
+      const [longitude, setLongitude] = useState(undefined!);
+      const [latitude, setLatitude] = useState(undefined!);
+      const [showCard, setShowCard] = useState(false);
+
     //need to experiment with this
     //put locations in a array and map through them
 
@@ -83,7 +87,7 @@ export function LocationProvider({ children }: React.PropsWithChildren<{}>) {
 
     
     return (
-        <LocationContext.Provider value={{ locations, setLocations }}>
+        <LocationContext.Provider value={{ locations, setLocations, longitude, setLongitude, latitude, setLatitude, showCard, setShowCard }}>
         {children}
         </LocationContext.Provider>
     );
