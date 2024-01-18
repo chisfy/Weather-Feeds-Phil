@@ -5,6 +5,8 @@ import { LocationContext } from '../context/locationbuttoncontext.tsx'
 export default function Card() {
 
 const { locations, latitude, longitude, index, setShowCard, showCard } = useContext(LocationContext)
+//setting the state for the weather data, could be an issue with the data not being fetched
+//state maybe better as null or undefined
 const [data, setData] = useState([]);
 const [temp, setTemp] = useState(0);
 const [tempScale, setTempScale] = useState("°C");
