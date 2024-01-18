@@ -23,8 +23,6 @@ function convertToCelcius() {
   setTempScale("°C");
 }
 
-//when switching cards, the tempscale won't change back to celcius
-
 //fetch weather data
 useEffect(() => {
   const fetchData = async () => {
@@ -33,6 +31,7 @@ useEffect(() => {
     setData(data);
     console.log(data);
     setTemp(Math.round(data.current.temperature_2m));
+    setTempScale("°C");
   };
 
   fetchData();
