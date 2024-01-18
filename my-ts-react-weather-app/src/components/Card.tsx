@@ -1,16 +1,20 @@
 import React from 'react'
-import { useContext, useEffect } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import { LocationContext } from '../context/locationbuttoncontext.tsx'
 
 export default function Card() {
 
-const { locations, latitude, longitude, index, setShowCard, showCard } = useContext(LocationContext);
+const { locations, latitude, longitude, index, setShowCard, showCard } = useContext(LocationContext)
+const [data, setData] = useState([]);
+
+// Need to add a button that converts the temperature from Celsius to Fahrenheit
 
 //fetch weather data
 useEffect(() => {
   const fetchData = async () => {
     const result = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current=temperature_2m,rain,snowfall&forecast_days=1`);
     const data = await result.json();
+    setData(data);
     console.log(data);
   };
 
@@ -32,6 +36,16 @@ return (
     </div>
     <div>
     <h4>Weather:</h4>
+    {/* FLAGGED UP ERROR BUT UNSURE */}
+    {data.current && (
+              <p>Temperature: {data.current.temperature_2m}°C</p>
+    )}
+    {data.current && data.current.rain > 0 && (
+        <p>Rain: {data.current.rain}mm</p>
+    )}
+    {data.current && data.current.snowfall > 0 && (
+        <p>Snowfall: {data.current.snowfall}mm</p>
+    )}
     </div>
     <div>
     <button onClick={() => setShowCard(false)}>X</button>

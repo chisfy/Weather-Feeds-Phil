@@ -7,6 +7,9 @@ import InfoText from './components/InfoText.tsx';
 import Locations from './components/Locations.tsx';
 
 function App() {
+
+// looking at building a dynamic background that changes depending on the temperature or region selcted
+
   return (
     <div className="App">
         <Logo />
