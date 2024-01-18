@@ -26,6 +26,7 @@ function convertToCelcius() {
 
 //fetch weather data
 useEffect(() => {
+  // should you try and catch the error here?
   const fetchData = async () => {
     const result = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current=temperature_2m,rain,snowfall&forecast_days=1`);
     const data = await result.json();
