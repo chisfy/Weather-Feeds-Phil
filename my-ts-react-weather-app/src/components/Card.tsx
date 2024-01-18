@@ -6,8 +6,24 @@ export default function Card() {
 
 const { locations, latitude, longitude, index, setShowCard, showCard } = useContext(LocationContext)
 const [data, setData] = useState([]);
+const [temp, setTemp] = useState(0);
+const [tempScale, setTempScale] = useState("°C");
 
 // Need to add a button that converts the temperature from Celsius to Fahrenheit
+//function works out the conversion but will continue to convert the temperature
+//need to make sure it will only convert once
+function convertToFahrenheit() {
+  setTemp(Math.round((temp * 9/5) + 32));
+  setTempScale("°F");
+}
+
+// Need to add a button that converts the temperature from Fahrenheit to Celsius
+function convertToCelcius() {
+  setTemp(Math.round((temp - 32) * 5/9));
+  setTempScale("°C");
+}
+
+//when switching cards, the tempscale won't change back to celcius
 
 //fetch weather data
 useEffect(() => {
@@ -16,6 +32,7 @@ useEffect(() => {
     const data = await result.json();
     setData(data);
     console.log(data);
+    setTemp(Math.round(data.current.temperature_2m));
   };
 
   fetchData();
@@ -38,7 +55,7 @@ return (
     <h4>Weather:</h4>
     {/* FLAGGED UP ERROR BUT UNSURE */}
     {data.current && (
-              <p>Temperature: {data.current.temperature_2m}°C</p>
+              <p>Temperature: {temp} {tempScale}</p>
     )}
     {data.current && data.current.rain > 0 && (
         <p>Rain: {data.current.rain}mm</p>
@@ -49,6 +66,8 @@ return (
     </div>
     <div>
     <button onClick={() => setShowCard(false)}>X</button>
+    <button onClick={() => convertToFahrenheit()}>Convert to Fahrenheit</button>
+    <button onClick={() => convertToCelcius(false)}>Convert to Celcius</button>
     </div>
     </div>}
     </>
