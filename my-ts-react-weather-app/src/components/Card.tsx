@@ -18,6 +18,7 @@ function convertToFahrenheit() {
 }
 
 // Need to add a button that converts the temperature from Fahrenheit to Celsius
+//will still convert the temperature even if it is already in Celsius
 function convertToCelcius() {
   setTemp(Math.round((temp - 32) * 5/9));
   setTempScale("°C");
