@@ -5,7 +5,7 @@ export default function Locations() {
   //need to experiment with this
   //put locations in a array and map through them
 
-  let locations: object[];
+let locations: object[];
   
 locations = [
   {
@@ -13,6 +13,7 @@ locations = [
     latitude: 13.754,
     city: "Bangkok",
     country: "Thailand",
+    flag: "../../public/th.svg",
     topRestaurant: "Jay Fai",
     description: "Jay Fai is famous for her award-winning crab omelet and tom yum soup dishes. She has the only Michelin Star awarded to a street food establishment.",
     address: "337-261 Maha Chai Rd, Khwaeng Samran Rat, Khet Phra Nakhon, Krung Thep Maha Nakhon 10200, Thailand"
@@ -22,6 +23,7 @@ locations = [
     latitude: 38.7167,
     city: "Lisbon",
     country: "Portugal",
+    flag: "../../public/pt.svg"
     topRestaurant: "Jesus é Goês",
     description: "Jesus makes Portuguese influenced Indian food, their signature dish, the Holy Hamburger, is a must-try.",
     address: "R. São José 23, 1150-352 Lisboa, Portugal"
@@ -69,7 +71,7 @@ locations = [
 
 return (
     //use the map to create the buttons
-    (locations.map((location) => {
+    (locations.map((location): object => {
       return (
         <button>{location.city}, {location.country}</button>
       )
