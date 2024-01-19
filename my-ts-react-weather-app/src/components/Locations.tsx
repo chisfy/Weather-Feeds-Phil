@@ -1,6 +1,6 @@
 import React from 'react'
 import { useContext } from 'react'
-import { LocationContext } from '../context/locationbuttoncontext.tsx'
+import { LocationContext, locationsStructure } from '../context/locationbuttoncontext.tsx'
 import Card from './Card.tsx';
 
 export default function Locations(): React.JSX.Element {
@@ -23,7 +23,7 @@ return (
     //use the map to create the buttons
     //unsure of why getting error here, buttons still correctly displaying
     <>
-    {locations.map((location, index: number) => (
+    {locations.map((location: locationsStructure, index: number) => (
       <button key={index} onClick={() => setLocation(location.latitude, location.longitude, index)}>
         {location.city}, {location.country}
       </button>

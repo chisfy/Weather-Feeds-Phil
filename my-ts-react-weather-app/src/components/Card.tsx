@@ -2,12 +2,21 @@ import React from 'react'
 import { useContext, useEffect, useState } from 'react'
 import { LocationContext } from '../context/locationbuttoncontext.tsx'
 
+type weatherData = {
+  current: {
+    temperature_2m: number,
+    rain: number,
+    snowfall: number,
+    weather_code: number
+  }
+}
+
 export default function Card(): React.JSX.Element {
 
 const { locations, latitude, longitude, index, setShowCard, showCard } = useContext(LocationContext)
 //setting the state for the weather data, could be an issue with the data not being fetched
 //state maybe better as null or undefined
-const [data, setData] = useState<object>({});
+const [data, setData] = useState<weatherData | undefined> (undefined);
 const [temp, setTemp] = useState<number>(0);
 const [tempScale, setTempScale] = useState<string>("°C");
 
@@ -30,7 +39,7 @@ function convertToCelcius(): void {
 useEffect(() => {
   // should you try and catch the error here?
   const fetchData = async (): Promise<void> => {
-    const result = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current=temperature_2m,rain,snowfall&forecast_days=1`);
+    const result = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current=temperature_2m,rain,snowfall,weather_code&forecast_days=1`);
     const data = await result.json();
     setData(data);
     console.log(data);
@@ -40,6 +49,32 @@ useEffect(() => {
 
   fetchData();
 }, [longitude, latitude]);
+
+//weather codes
+type WeatherCodes = {
+  0: string,
+  1: string,
+  2: string,
+  3: string
+}
+
+// data includes a weather code,
+// weathercode needs to be converted in to the text
+//need to extract the data weather code and run it against
+
+function weatherCode(codeNumber) {
+  switch(codeNumber) {
+    case 0:
+      return "Clear Sky";
+  }
+}
+
+const weatherCodes: WeatherCodes ={
+  0: "Clear Sky",
+  1: "Mainly Clear",
+  2: "Partly Cloudy",
+  3: "Overcast" 
+}
 
 return (
   //card shows the data and displays temperature and weather
@@ -57,15 +92,18 @@ return (
     <div>
     <h4>Weather:</h4>
     {/* FLAGGED UP ERROR BUT UNSURE */}
-    {data.current && (
+    {data?.current && (
               <p>Temperature: {temp} {tempScale}</p>
     )}
-    {data.current && data.current.rain > 0 && (
+    {data?.current && data.current.rain > 0 && (
         <p>Rain: {data.current.rain}mm</p>
     )}
-    {data.current && data.current.snowfall > 0 && (
+    {data?.current && data.current.snowfall > 0 && (
         <p>Snowfall: {data.current.snowfall}mm</p>
     )}
+    {data?.current && (
+      <p>Summary of Weather: {weatherCode(data.current.weather_code)}</p>
+      )}
     </div>
     <div>
     <button onClick={() => setShowCard(false)}>X</button>
