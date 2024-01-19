@@ -55,11 +55,11 @@ function convertToCelcius(): void {
 useEffect(() => {
   // should you try and catch the error here?
   const fetchData = async (): Promise<void> => {
-    const result = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current=temperature_2m,rain,snowfall,weather_code&forecast_days=1`);
-    const data = await result.json();
+    const result: Response = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current=temperature_2m,rain,snowfall,weather_code&forecast_days=1`);
+    const data: weatherData = await result.json();
     setData(data);
     console.log(data);
-    setTemp(Math.round(data.current.temperature_2m));
+    setTemp(Math.round(data?.current.temperature_2m));
     setTempScale("°C");
     setIsCelciusButtonDisabled(true);
     setIsFahrenheitButtonDisabled(false)
