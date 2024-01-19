@@ -7,7 +7,7 @@ export default function Card(): React.JSX.Element {
 const { locations, latitude, longitude, index, setShowCard, showCard } = useContext(LocationContext)
 //setting the state for the weather data, could be an issue with the data not being fetched
 //state maybe better as null or undefined
-const [data, setData] = useState([]);
+const [data, setData] = useState<object>({});
 const [temp, setTemp] = useState<number>(0);
 const [tempScale, setTempScale] = useState<string>("°C");
 
@@ -29,7 +29,7 @@ function convertToCelcius(): void {
 //fetch weather data
 useEffect(() => {
   // should you try and catch the error here?
-  const fetchData = async () => {
+  const fetchData = async (): Promise<void> => {
     const result = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current=temperature_2m,rain,snowfall&forecast_days=1`);
     const data = await result.json();
     setData(data);
