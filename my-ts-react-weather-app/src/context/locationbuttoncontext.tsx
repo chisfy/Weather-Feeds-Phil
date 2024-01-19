@@ -32,7 +32,7 @@ export function LocationProvider({ children }: React.PropsWithChildren<{}>) {
           latitude: 38.7167,
           city: "Lisbon",
           country: "Portugal",
-          flag: "../../public/images/pt.svg",
+          flag: "images/pt.svg",
           topRestaurant: "Jesus é Goês",
           description: "Jesus makes Portuguese influenced Indian food, their signature dish, the Holy Hamburger, is a must-try.",
           address: "R. São José 23, 1150-352 Lisboa, Portugal"
@@ -42,7 +42,7 @@ export function LocationProvider({ children }: React.PropsWithChildren<{}>) {
           latitude: 19.4285,
           city: "Mexico City",
           country: "Mexico",
-          flag: "../../public/images/mx.svg",
+          flag: "images/mx.svg",
           topRestaurant: "Pujol",
           description: "Pujol is one of the world's 50 best restaurants. Famous for their Mole Madre (3 years of mole sauce blended) and pulque ice cream with guava for dessert.",
           address: "Tennyson 133, Polanco, Polanco IV Secc, 11570 Ciudad de México, CDMX, Mexico"
@@ -52,7 +52,7 @@ export function LocationProvider({ children }: React.PropsWithChildren<{}>) {
           latitude: 32.0809,
           city: "Tel Aviv",
           country: "Israel",
-          flag: "../../public/images/il.svg",
+          flag: "images/il.svg",
           topRestaurant: "Sherry Herring",
           description: "Located in Shuk HaNamal, a Tel Aviv port market created by Ansky. With over 70 vendors, Sherry Herring offers a herring sandwich traditionally served with a shot of vodka. L’chaim!",
           address: "Nemal Tel Aviv St 12, Tel Aviv-Yafo, Israel"
@@ -62,7 +62,7 @@ export function LocationProvider({ children }: React.PropsWithChildren<{}>) {
           latitude: 10.8022,
           city: "Saigon",
           country: "Vietnam",
-          flag: "../../public/images/vn.svg",
+          flag: "images/vn.svg",
           topRestaurant: "Maison Merou",
           description: "Maison Merou was started by two expats from France who trekked across the jungle and found cocoa trees. They decided to harvest cocoa seeds and create luxury chocolates in Vietnam.",
           address: "167-169 Calmette, Phường Nguyễn Thái Bìn, Ho Chi Minh City, Hồ Chí Minh, Vietnam"
@@ -72,7 +72,7 @@ export function LocationProvider({ children }: React.PropsWithChildren<{}>) {
           latitude: 29.9547,
           city: "New Orleans",
           country: "USA",
-          flag: "../../public/images/us.svg",
+          flag: "images/us.svg",
           topRestaurant: "Dooky Chase's",
           description: "Chef, Leah Chase has been cooking for over 70 years at Dooky Chase. She is the New Orleans creole cuisine legend and serves a delicious gumbo.",
           address: "2301 Orleans Ave, New Orleans, LA 70119, United States"

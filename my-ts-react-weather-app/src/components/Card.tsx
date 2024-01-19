@@ -1,7 +1,9 @@
 import React from 'react'
 import { useContext, useEffect, useState } from 'react'
-import { LocationContext } from '../context/locationbuttoncontext.tsx'
+import { LocationContext, locationsStructure } from '../context/locationbuttoncontext.tsx'
 
+
+// types placed above functions to allow for export
 type weatherData = {
   current: {
     temperature_2m: number,
@@ -9,6 +11,13 @@ type weatherData = {
     snowfall: number,
     weather_code: number
   }
+}
+
+type WeatherCodes = {
+  0: string,
+  1: string,
+  2: string,
+  3: string
 }
 
 export default function Card(): React.JSX.Element {
@@ -51,23 +60,9 @@ useEffect(() => {
 }, [longitude, latitude]);
 
 //weather codes
-type WeatherCodes = {
-  0: string,
-  1: string,
-  2: string,
-  3: string
-}
-
 // data includes a weather code,
 // weathercode needs to be converted in to the text
 //need to extract the data weather code and run it against
-
-function weatherCode(codeNumber) {
-  switch(codeNumber) {
-    case 0:
-      return "Clear Sky";
-  }
-}
 
 const weatherCodes: WeatherCodes ={
   0: "Clear Sky",
@@ -93,6 +88,9 @@ return (
     <h4>Weather:</h4>
     {/* FLAGGED UP ERROR BUT UNSURE */}
     {data?.current && (
+      <p>Visibility: {weatherCodes[data.current.weather_code]}</p>
+      )}
+    {data?.current && (
               <p>Temperature: {temp} {tempScale}</p>
     )}
     {data?.current && data.current.rain > 0 && (
@@ -101,9 +99,6 @@ return (
     {data?.current && data.current.snowfall > 0 && (
         <p>Snowfall: {data.current.snowfall}mm</p>
     )}
-    {data?.current && (
-      <p>Summary of Weather: {weatherCode(data.current.weather_code)}</p>
-      )}
     </div>
     <div>
     <button onClick={() => setShowCard(false)}>X</button>
