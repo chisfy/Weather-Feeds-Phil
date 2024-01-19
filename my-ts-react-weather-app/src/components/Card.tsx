@@ -2,26 +2,26 @@ import React from 'react'
 import { useContext, useEffect, useState } from 'react'
 import { LocationContext } from '../context/locationbuttoncontext.tsx'
 
-export default function Card() {
+export default function Card(): React.JSX.Element {
 
 const { locations, latitude, longitude, index, setShowCard, showCard } = useContext(LocationContext)
 //setting the state for the weather data, could be an issue with the data not being fetched
 //state maybe better as null or undefined
 const [data, setData] = useState([]);
-const [temp, setTemp] = useState(0);
-const [tempScale, setTempScale] = useState("°C");
+const [temp, setTemp] = useState<number>(0);
+const [tempScale, setTempScale] = useState<string>("°C");
 
 // Need to add a button that converts the temperature from Celsius to Fahrenheit
 //function works out the conversion but will continue to convert the temperature
 //need to make sure it will only convert once
-function convertToFahrenheit() {
+function convertToFahrenheit(): void {
   setTemp(Math.round((temp * 9/5) + 32));
   setTempScale("°F");
 }
 
 // Need to add a button that converts the temperature from Fahrenheit to Celsius
 //will still convert the temperature even if it is already in Celsius
-function convertToCelcius() {
+function convertToCelcius(): void {
   setTemp(Math.round((temp - 32) * 5/9));
   setTempScale("°C");
 }
@@ -70,7 +70,7 @@ return (
     <div>
     <button onClick={() => setShowCard(false)}>X</button>
     <button onClick={() => convertToFahrenheit()}>Convert to Fahrenheit</button>
-    <button onClick={() => convertToCelcius(false)}>Convert to Celcius</button>
+    <button onClick={() => convertToCelcius()}>Convert to Celcius</button>
     </div>
     </div>}
     </>

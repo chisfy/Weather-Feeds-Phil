@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function Time() {
+export default function Time(): React.JSX.Element {
   return (
     <>
     <hr></hr>

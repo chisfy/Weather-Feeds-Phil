@@ -5,7 +5,7 @@ import Footer from './components/Footer.tsx';
 import InfoText from './components/InfoText.tsx';
 import Locations from './components/Locations.tsx';
 
-function App() {
+function App(): React.JSX.Element {
 
 // looking at building a dynamic background that changes depending on the temperature or region selcted
 
