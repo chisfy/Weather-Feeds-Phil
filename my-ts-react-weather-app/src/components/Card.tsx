@@ -28,6 +28,8 @@ const { locations, latitude, longitude, index, setShowCard, showCard } = useCont
 const [data, setData] = useState<weatherData | undefined> (undefined);
 const [temp, setTemp] = useState<number>(0);
 const [tempScale, setTempScale] = useState<string>("°C");
+const [isFahrenheitButtonDisabled, setIsFahrenheitButtonDisabled] = useState<boolean>(false);
+const [isCelciusButtonDisabled, setIsCelciusButtonDisabled] = useState<boolean>(true)
 
 // Need to add a button that converts the temperature from Celsius to Fahrenheit
 //function works out the conversion but will continue to convert the temperature
@@ -35,6 +37,8 @@ const [tempScale, setTempScale] = useState<string>("°C");
 function convertToFahrenheit(): void {
   setTemp(Math.round((temp * 9/5) + 32));
   setTempScale("°F");
+  setIsFahrenheitButtonDisabled(true);
+  setIsCelciusButtonDisabled(false);
 }
 
 // Need to add a button that converts the temperature from Fahrenheit to Celsius
@@ -42,7 +46,10 @@ function convertToFahrenheit(): void {
 function convertToCelcius(): void {
   setTemp(Math.round((temp - 32) * 5/9));
   setTempScale("°C");
+  setIsFahrenheitButtonDisabled(false);
+  setIsCelciusButtonDisabled(true);
 }
+
 
 //fetch weather data
 useEffect(() => {
@@ -54,6 +61,8 @@ useEffect(() => {
     console.log(data);
     setTemp(Math.round(data.current.temperature_2m));
     setTempScale("°C");
+    setIsCelciusButtonDisabled(true);
+    setIsFahrenheitButtonDisabled(false)
   };
 
   fetchData();
@@ -64,7 +73,7 @@ useEffect(() => {
 // weathercode needs to be converted in to the text
 //need to extract the data weather code and run it against
 
-const weatherCodes: WeatherCodes ={
+const weatherCodes: WeatherCodes = {
   0: "Clear Sky",
   1: "Mainly Clear",
   2: "Partly Cloudy",
@@ -102,8 +111,8 @@ return (
     </div>
     <div>
     <button onClick={() => setShowCard(false)}>X</button>
-    <button onClick={() => convertToFahrenheit()}>Convert to Fahrenheit</button>
-    <button onClick={() => convertToCelcius()}>Convert to Celcius</button>
+    <button onClick={() => convertToFahrenheit()} disabled={isFahrenheitButtonDisabled}>Convert to Fahrenheit</button>
+    <button onClick={() => convertToCelcius()} disabled={isCelciusButtonDisabled}>Convert to Celcius</button>
     </div>
     </div>}
     </>
