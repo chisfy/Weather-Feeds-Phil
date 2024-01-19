@@ -1,6 +1,6 @@
 import React from 'react'
 import { useContext, useEffect, useState } from 'react'
-import { LocationContext, locationsStructure } from '../context/locationbuttoncontext.tsx'
+import { LocationContext } from '../context/locationbuttoncontext.tsx'
 
 
 // types placed above functions to allow for export
@@ -77,7 +77,7 @@ return (
   {showCard &&
     <div className="card">
     <h3>{locations[index].city}, {locations[index].country}</h3>
-    <img src={locations[index].image} height={50} width={50} alt="country-flag" />
+    <img src={locations[index].flag} height={50} width={50} alt="country-flag" />
     <div>
     <h4>Foodie Fact:</h4>
     <p>{locations[index].topRestaurant}</p>
