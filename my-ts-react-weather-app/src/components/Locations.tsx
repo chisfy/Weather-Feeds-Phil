@@ -1,12 +1,12 @@
 import React from 'react'
 import { useContext } from 'react'
-import { LocationContext, locationsStructure } from '../context/locationbuttoncontext.tsx'
+import { LocationContext, locationsStructure, LocationContextValue } from '../context/locationbuttoncontext.tsx'
 import Card from './Card.tsx';
 
 export default function Locations(): React.JSX.Element {
 
  //useContext to store the fetched data
-const { locations, setLatitude, setLongitude, showCard, setShowCard, setIndex } = useContext(LocationContext);
+const { locations, setLatitude, setLongitude, showCard, setShowCard, setIndex } = useContext(LocationContext as React.Context<LocationContextValue>);
 
 
 //set the latitude and longitude, also sets the index for the card

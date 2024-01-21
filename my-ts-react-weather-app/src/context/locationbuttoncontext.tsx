@@ -12,8 +12,21 @@ export type locationsStructure = {
   address: string
 }
 
+export interface LocationContextValue {
+  locations: locationsStructure[];
+  setLocations: React.Dispatch<React.SetStateAction<locationsStructure[]>>;
+  longitude: number | undefined;
+  setLongitude: React.Dispatch<React.SetStateAction<number | undefined>>;
+  latitude: number | undefined;
+  setLatitude: React.Dispatch<React.SetStateAction<number | undefined>>;
+  showCard: boolean;
+  setShowCard: React.Dispatch<React.SetStateAction<boolean>>;
+  index: number;
+  setIndex: React.Dispatch<React.SetStateAction<number>>;
+  };
+
 //error saying it needs an arugment but it intentially left blank as it is a built in react function
-export const LocationContext = createContext<any>(undefined);
+export const LocationContext = createContext<LocationContextValue | null>(null);
 
 export function LocationProvider({ children }: React.PropsWithChildren<{}>) {
     const [locations, setLocations] = useState<locationsStructure[]>([
@@ -81,7 +94,7 @@ export function LocationProvider({ children }: React.PropsWithChildren<{}>) {
       const [longitude, setLongitude] = useState<number | undefined>(undefined);
       const [latitude, setLatitude] = useState<number | undefined>(undefined);
       const [showCard, setShowCard] = useState<boolean>(false);
-      const [index, setIndex] = useState<number | undefined>(undefined);
+      const [index, setIndex] = useState<number>(0);
 
     //need to experiment with this
     //put locations in a array and map through them
