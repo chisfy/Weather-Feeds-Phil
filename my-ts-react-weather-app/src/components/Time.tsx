@@ -6,7 +6,8 @@ const time: string = new Date().toLocaleTimeString()
 
   return (
     <>
-    <hr></hr>
+    <div className='vertical-line'> 
+    </div>
     {time}
     </>
   )
