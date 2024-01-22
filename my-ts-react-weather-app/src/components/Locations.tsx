@@ -30,7 +30,10 @@ return (
       </button>
     ))}
     </div>
-    {showCard && <Card />}
+    {showCard &&
+    <div className="card"> 
+    <Card />
+    </div>}
   </>
 )
 }

@@ -133,16 +133,20 @@ return (
   //card shows the data and displays temperature and weather
   <>
   {showCard &&
-    <main className="card">
-    <h3>{locations[index].city}, {locations[index].country}</h3>
-    <img src={locations[index].flag} height={50} width={50} alt="country-flag" />
+    <section className="fact-card">
+    <button className="close-button" onClick={() => setShowCard(false)}>X</button>
+    <h3 className="card-title">{locations[index].city}, {locations[index].country}</h3>
+    <img className="card-image" src={locations[index].flag} height={50} width={50} alt="country-flag" />
     <div>
     <h4>Foodie Fact:</h4>
+    <div className="convert-buttons">
     <p>{locations[index].topRestaurant},</p>
     <p>{locations[index].description}</p>
+    <p>Where is it:</p>
     <p>{locations[index].address}</p>
     </div>
-    <div>
+    </div>
+    <div className="card-title">
     <h4>Weather:</h4>
     {/* FLAGGED UP ERROR BUT UNSURE */}
     {data?.current && (
@@ -158,12 +162,11 @@ return (
         <p>Snowfall: {data.current.snowfall}mm</p>
     )}
     </div>
-    <div>
-    <button onClick={() => setShowCard(false)}>X</button>
-    <button onClick={() => convertToFahrenheit()} disabled={isFahrenheitButtonDisabled}>Convert to Fahrenheit</button>
-    <button onClick={() => convertToCelcius()} disabled={isCelciusButtonDisabled}>Convert to Celcius</button>
+    <div className="convert-buttons">
+    <button className="conversion-button" onClick={() => convertToFahrenheit()} disabled={isFahrenheitButtonDisabled}>°F</button>
+    <button className="conversion-button" onClick={() => convertToCelcius()} disabled={isCelciusButtonDisabled}>°C</button>
     </div>
-    </main>}
+    </section>}
     </>
   )
 }
