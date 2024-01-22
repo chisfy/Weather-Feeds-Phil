@@ -57,10 +57,7 @@ li {
     background-color: black;
     border: 5px solid black;
     border-radius: 15px;
-    display: flex;
     width: 90vw;
-    justify-content: center;
-    align-items: center;
     padding: 10px;
     margin: auto;
     color: white;
@@ -68,9 +65,17 @@ li {
 
 .card-title {
     text-align: center;
+    padding-top: 15px;
+}
+
+.card-subheading {
+    text-align: center;
+    padding-top: 10px;
 }
 
 .card-image {
+    padding-top: 5px;
+    width: 60px;
     margin: auto;
 }
 
@@ -118,9 +123,9 @@ li {
     }
 
     .location-button {
-        height: 50px;
+        height: 75px;
         width: 75px;
-        font-size: 8px;
+        font-size: 10px;
     }
 
     .close-button {

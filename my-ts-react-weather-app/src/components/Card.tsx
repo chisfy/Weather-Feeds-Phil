@@ -136,17 +136,18 @@ return (
     <section className="fact-card">
     <button className="close-button" onClick={() => setShowCard(false)}>X</button>
     <h3 className="card-title">{locations[index].city}, {locations[index].country}</h3>
-    <img className="card-image" src={locations[index].flag} height={50} width={50} alt="country-flag" />
-    <div>
+    <div className="card-image">
+    <img src={locations[index].flag} height={60} width={60} alt="country-flag" />
+    </div>
+    <div className="card-subheading">
     <h4>Foodie Fact:</h4>
-    <div className="convert-buttons">
-    <p>{locations[index].topRestaurant},</p>
-    <p>{locations[index].description}</p>
-    <p>Where is it:</p>
-    <p>{locations[index].address}</p>
+    <div>
+    <p>Name: {locations[index].topRestaurant}</p>
+    <p>Lil' Taster: {locations[index].description}</p>
+    <p>Location: {locations[index].address}</p>
     </div>
     </div>
-    <div className="card-title">
+    <div className="card-subheading">
     <h4>Weather:</h4>
     {/* FLAGGED UP ERROR BUT UNSURE */}
     {data?.current && (
