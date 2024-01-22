@@ -10,14 +10,14 @@ function App(): React.JSX.Element {
 // looking at building a dynamic background that changes depending on the temperature or region selcted
 
   return (
-    <>
+    <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
         <Header />
-    <main>
+    <main style={{ flex: 1 }}>
         <InfoText />
         <Locations />
     </main>
         <Footer />
-    </>
+    </div>
   );
 }
 

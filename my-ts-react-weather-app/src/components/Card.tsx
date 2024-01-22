@@ -140,7 +140,7 @@ return (
     <img src={locations[index].flag} height={60} width={60} alt="country-flag" />
     </div>
     <div className="card-subheading">
-    <h4>Foodie Fact:</h4>
+    <h4>Top Foodie Spot:</h4>
     <div>
     <p>Name: {locations[index].topRestaurant}</p>
     <p>Lil' Taster: {locations[index].description}</p>
