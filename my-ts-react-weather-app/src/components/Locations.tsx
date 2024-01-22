@@ -31,9 +31,9 @@ return (
     ))}
     </div>
     {showCard &&
-    <div className="card"> 
+    <> 
     <Card />
-    </div>}
+    </>}
   </>
 )
 }

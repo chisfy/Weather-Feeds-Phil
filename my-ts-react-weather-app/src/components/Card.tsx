@@ -44,6 +44,13 @@ type WeatherCodes = {
   99: string
 }
 
+type WeatherTempGradients = {
+  cold: string,
+  mild: string,
+  warm: string,
+  hot: string
+}
+
 export default function Card(): React.JSX.Element {
 
 const { locations, longitude, latitude, showCard, setShowCard, index } = useContext(LocationContext as React.Context<LocationContextValue>)
@@ -54,6 +61,7 @@ const [temp, setTemp] = useState<number>(0);
 const [tempScale, setTempScale] = useState<string>("°C");
 const [isFahrenheitButtonDisabled, setIsFahrenheitButtonDisabled] = useState<boolean>(false);
 const [isCelciusButtonDisabled, setIsCelciusButtonDisabled] = useState<boolean>(true)
+const [backgroundTempImage, setBackgroundTempImage] = useState<string | undefined>(undefined);
 
 // Need to add a button that converts the temperature from Celsius to Fahrenheit
 //function works out the conversion but will continue to convert the temperature
@@ -74,6 +82,29 @@ function convertToCelcius(): void {
   setIsCelciusButtonDisabled(true);
 }
 
+function temperatureChange(temp): void {
+
+  switch (true) {
+    case temp <= 8:
+      setBackgroundTempImage(weatherBackgrounds.cold);
+    break;
+    case temp <= 15:
+      setBackgroundTempImage(weatherBackgrounds.mild);
+    break;
+    case temp <= 21:
+      setBackgroundTempImage(weatherBackgrounds.mid);
+    break;
+    case temp <= 22:
+      setBackgroundTempImage(weatherBackgrounds.warm);
+    break;
+    case temp >= 23:
+      setBackgroundTempImage(weatherBackgrounds.hot);
+    break;
+    default:
+      setBackgroundTempImage(undefined);
+  }
+
+}
 
 //fetch weather data
 useEffect(() => {
@@ -87,11 +118,21 @@ useEffect(() => {
     setTempScale("°C");
     setIsCelciusButtonDisabled(true);
     setIsFahrenheitButtonDisabled(false)
+    temperatureChange(Math.round(data?.current.temperature_2m));
   };
 
   fetchData();
 }, [longitude, latitude]);
 
+const weatherBackgrounds: WeatherTempGradients = {
+  cold: "linear-gradient(to top, #0c3483 0%, #a2b6df 100%, #6b8cce 100%, #a2b6df 100%)",
+  mild: "linear-gradient(-225deg, #5D9FFF 0%, #B8DCFF 48%, #6BBBFF 100%)",
+  mid: "linear-gradient(-225deg, #2CD8D5 0%, #C5C1FF 56%, #FFBAC3 100%)",
+  warm: "linear-gradient(-225deg, #FFE29F 0%, #FFA99F 48%, #FF719A 100%)",
+  hot: "linear-gradient(to right, #f83600 0%, #f9d423 100%)"
+}
+
+console.log(weatherBackgrounds)
 //weather codes
 // data includes a weather code,
 // weathercode needs to be converted in to the text
@@ -133,7 +174,7 @@ return (
   //card shows the data and displays temperature and weather
   <>
   {showCard &&
-    <section className="fact-card">
+    <section className="card" style={{ backgroundImage: backgroundTempImage }}>
     <button className="close-button" onClick={() => setShowCard(false)}>X</button>
     <h3 className="card-title">{locations[index].city}, {locations[index].country}</h3>
     <div className="card-image">

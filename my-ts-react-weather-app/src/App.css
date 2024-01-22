@@ -54,7 +54,6 @@ li {
 }
 
 .card {
-    background-color: black;
     border: 5px solid black;
     border-radius: 15px;
     width: 90vw;
@@ -82,7 +81,7 @@ li {
 .close-button {
     position: relative;
     float: right;
-    background: black;
+    background: none;
 	color: white;
     border-style: none;
     font-size: 25px;
