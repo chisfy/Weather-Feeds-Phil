@@ -126,7 +126,7 @@ useEffect(() => {
 
 const weatherBackgrounds: WeatherTempGradients = {
   cold: "linear-gradient(to top, #0c3483 0%, #a2b6df 100%, #6b8cce 100%, #a2b6df 100%)",
-  mild: "linear-gradient(-225deg, #5D9FFF 0%, #B8DCFF 48%, #6BBBFF 100%)",
+  mild: "linear-gradient(-225deg, #7DE2FC 0%, #B9B6E5 100%)",
   mid: "linear-gradient(-225deg, #2CD8D5 0%, #C5C1FF 56%, #FFBAC3 100%)",
   warm: "linear-gradient(-225deg, #FFE29F 0%, #FFA99F 48%, #FF719A 100%)",
   hot: "linear-gradient(to right, #f83600 0%, #f9d423 100%)"
