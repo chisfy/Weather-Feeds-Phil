@@ -87,7 +87,7 @@ export function LocationProvider({ children }: React.PropsWithChildren<{}>) {
           country: "USA",
           flag: "images/us.svg",
           topRestaurant: "Dooky Chase's",
-          description: "Chef, Leah Chase has been cooking for over 70 years at Dooky Chase. She is the New Orleans creole cuisine legend and serves a delicious gumbo.",
+          description: "Chef Leah Chase has been cooking for over 70 years at Dooky Chase. She is the New Orleans creole cuisine legend and serves a delicious gumbo.",
           address: "2301 Orleans Ave, New Orleans, LA 70119, United States"
         },
       ]);

@@ -5,11 +5,68 @@ li {
 
 .vertical-line {
     border-left: 6px solid black;
-    height: 500px;
+    height: 350px;
 }
 
-.header-box {
+.line {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.logo-position {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 15px;
+}
+
+.time-position {
+    display: flex;
+    align-items: center;
+}
+
+.info-text {
+    text-align: center;
+    padding: 10px;
+    font-weight: bold;
+    font-size: 24px;
+}
+
+.time {
+    margin-left: 10px;
+    font-size: 50px;
+}
+
+.location-button {
+    background-color: #e60a15;
+    border-style: none;
+    margin: 5px;
+    color: white;
+    padding: 5px;
+}
+
+.location-position {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+@media only screen and (max-width: 420px) {
+    .logo-image {
+        height: 150px;
+        width: 150px;
+    }
+
+    .vertical-line {
+        height: 175px;
+    }
+
+    .time {
+        font-size: 25px;
+    }
+
+    .info-text {
+        font-size: 15px;
+    }
 }

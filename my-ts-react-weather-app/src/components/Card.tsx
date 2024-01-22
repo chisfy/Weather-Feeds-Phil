@@ -133,12 +133,12 @@ return (
   //card shows the data and displays temperature and weather
   <>
   {showCard &&
-    <div className="card">
+    <main className="card">
     <h3>{locations[index].city}, {locations[index].country}</h3>
     <img src={locations[index].flag} height={50} width={50} alt="country-flag" />
     <div>
     <h4>Foodie Fact:</h4>
-    <p>{locations[index].topRestaurant}</p>
+    <p>{locations[index].topRestaurant},</p>
     <p>{locations[index].description}</p>
     <p>{locations[index].address}</p>
     </div>
@@ -163,7 +163,7 @@ return (
     <button onClick={() => convertToFahrenheit()} disabled={isFahrenheitButtonDisabled}>Convert to Fahrenheit</button>
     <button onClick={() => convertToCelcius()} disabled={isCelciusButtonDisabled}>Convert to Celcius</button>
     </div>
-    </div>}
+    </main>}
     </>
   )
 }

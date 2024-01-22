@@ -23,11 +23,13 @@ return (
     //use the map to create the buttons
     //unsure of why getting error here, buttons still correctly displaying
     <>
+    <div className="location-position">
     {locations.map((location: locationsStructure, index: number) => (
-      <button key={index} onClick={() => setLocation(location.latitude, location.longitude, index)}>
+      <button className="location-button" key={index} onClick={() => setLocation(location.latitude, location.longitude, index)}>
         {location.city}, {location.country}
       </button>
     ))}
+    </div>
     {showCard && <Card />}
   </>
 )

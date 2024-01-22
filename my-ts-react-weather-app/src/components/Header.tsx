@@ -4,7 +4,7 @@ import Time from './Time.tsx'
 
 export default function Header(): React.JSX.Element {
   return (
-    <header className='header-box'>
+    <header className="logo-position">
         <Logo />
         <Time />
     </header>

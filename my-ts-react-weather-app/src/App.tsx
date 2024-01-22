@@ -10,12 +10,14 @@ function App(): React.JSX.Element {
 // looking at building a dynamic background that changes depending on the temperature or region selcted
 
   return (
-    <div className="App">
+    <>
         <Header />
+    <main>
         <InfoText />
         <Locations />
+    </main>
         <Footer />
-    </div>
+    </>
   );
 }
 

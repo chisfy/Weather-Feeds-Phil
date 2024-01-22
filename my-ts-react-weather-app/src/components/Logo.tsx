@@ -3,7 +3,7 @@ import React from 'react'
 export default function Logo(): React.JSX.Element {
   return (
     <>
-    <img src="images/WeatherFC.svg" alt="weather-logo" />
+    <img className="logo-image" src="images/WeatherFC.svg" alt="weather-logo" />
     </>
   )
 }
