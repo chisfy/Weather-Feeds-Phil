@@ -1,5 +1,5 @@
 <h1 align="center"> 
-Weather Feeds Phil!
+⛅ Weather Feeds Phil! ⛅
 </h1>
 
 <p align="center">  
