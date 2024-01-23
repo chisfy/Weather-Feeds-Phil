@@ -46,6 +46,6 @@ CSS styling; improvement and a better approach to positioning elements rather th
 Testing; I have yet to implement written tests, relying on developer environment testing and deployment checks.
 </p>
 
-## 💭 Demo
+## 🎥 Demo
 
 <video align="center" src="https://github.com/chisfy/Weather-Feeds-Phil/assets/137444313/d6cee72d-15e5-4e29-8234-203db57f0414"/>
