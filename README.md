@@ -15,10 +15,13 @@ Find out a hotstop for delicious food, whilst seeing what the weather is like cu
 
 ## ⛏️ Tech Stack
 
-<p align="center">
-<a href="https://www.typescriptlang.org/">TypeScript</a> &
-<a href="https://react.dev/">React</a>
-</p>
+
+<section align="center">
+<a href="https://www.typescriptlang.org/"><img src="https://github.com/chisfy/Weather-Feeds-Phil/assets/137444313/b8056e43-daf4-4cdc-834c-2f47b7460b63" alt="JS_logo" height="100" width="100"/></a>
+&nbsp;&nbsp;&nbsp;
+<a href="https://react.dev/"><img src="https://github.com/chisfy/SoC-Shop/assets/137444313/3931383a-9636-4eae-b0bd-ba58b0517597" alt="React_logo" height="100" width="110"/></a>
+&nbsp;&nbsp;&nbsp;
+</section>
   
 ## 🏫 Lessons Learned
 
