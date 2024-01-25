@@ -15,7 +15,6 @@ Find out a hotstop for delicious food, whilst seeing what the weather is like cu
 
 ## ⛏️ Tech Stack
 
-
 <section align="center">
 <a href="https://www.typescriptlang.org/"><img src="https://github.com/chisfy/Weather-Feeds-Phil/assets/137444313/b8056e43-daf4-4cdc-834c-2f47b7460b63" alt="JS_logo" height="100" width="100"/></a>
 &nbsp;&nbsp;&nbsp;
