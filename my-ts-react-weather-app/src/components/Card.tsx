@@ -47,6 +47,7 @@ type WeatherCodes = {
 type WeatherTempGradients = {
   cold: string,
   mild: string,
+  mid: string,
   warm: string,
   hot: string
 }
@@ -82,7 +83,7 @@ function convertToCelcius(): void {
   setIsCelciusButtonDisabled(true);
 }
 
-function temperatureChange(temp): void {
+function temperatureChange(temp: number): void {
 
   switch (true) {
     case temp <= 8:
@@ -122,7 +123,7 @@ useEffect(() => {
   };
 
   fetchData();
-}, [longitude, latitude]);
+}, [temp, longitude, latitude]);
 
 const weatherBackgrounds: WeatherTempGradients = {
   cold: "linear-gradient(to top, #0c3483 0%, #a2b6df 100%, #6b8cce 100%, #a2b6df 100%)",
