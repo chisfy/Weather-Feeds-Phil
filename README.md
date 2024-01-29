@@ -13,6 +13,16 @@ Find out a hotstop for delicious food, whilst seeing what the weather is like cu
 <a href="https://weather-feeds-phil.vercel.app/">Weather Feeds Phil</a>
 </p>
 
+<p align="center">
+<a href="https://sites.google.com/view/coding-and-me/blogs/weather-feeds-phil-typescript-project">Blog Post</a>
+</p>
+
+## ✨ Inspiration
+
+<p align="center">
+Encouraged by my mentor, I undertook the task of creating something with TypeScript and React for our upcoming meeting. This initiative stemmed from my expressed desire to delve deeper into TypeScript. I chose to build a weather app, a project I had enjoyed during an early bootcamp hackathon but hadn't completed. As I crafted the plan and flowchart, I realized its simplicity and decided to incorporate details from a show I'm currently watching to make it more engaging.
+</p>
+
 ## ⛏️ Tech Stack
 
 <section align="center">
