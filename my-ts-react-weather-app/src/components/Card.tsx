@@ -123,7 +123,7 @@ useEffect(() => {
   };
 
   fetchData();
-}, [temp, longitude, latitude]);
+}, [longitude, latitude]);
 
 const weatherBackgrounds: WeatherTempGradients = {
   cold: "linear-gradient(to top, #0c3483 0%, #a2b6df 100%, #6b8cce 100%, #a2b6df 100%)",
