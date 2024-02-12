@@ -2,7 +2,7 @@
     "extends": "./tsconfig.json",
     "compilerOptions": {
       "esModuleInterop": true,
-      "types": ["jest"]
+      "types": ["jest", "testing-library__jest-dom" ]
     },
 "include": ["App.test.tsx"]
 }

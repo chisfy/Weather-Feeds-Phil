@@ -1,5 +1,6 @@
 import React from "react"
 import { render, screen } from "@testing-library/react"
+import '@testing-library/jest-dom/extend-expect';
 import App from "./App"
 import { LocationContext } from "./context/locationbuttoncontext"
 
@@ -26,4 +27,14 @@ test("checking basic render of the page", async () => {
         <App />
     </LocationContext.Provider>
     );
+})
+
+test("checking logo to be on main page", async () => {
+    render(
+    <LocationContext.Provider value={mockContextValue}>
+        <App />
+    </LocationContext.Provider>
+    );
+    const logo = screen.getByRole("img");
+    expect(logo).toBeInTheDocument();
 })
