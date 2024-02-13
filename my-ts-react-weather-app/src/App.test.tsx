@@ -1,8 +1,9 @@
-import React from "react"
-import { render, screen, waitFor } from "@testing-library/react"
+import React from "react";
+import { render, screen, fireEvent } from "@testing-library/react";
 import '@testing-library/jest-dom/extend-expect';
-import App from "./App"
-import { LocationContext } from "./context/locationbuttoncontext"
+import App from "./App";
+import fetchMock from "jest-fetch-mock";
+import { LocationContext } from "./context/locationbuttoncontext";
 
 const mockContextValue = {
     locations: [{
@@ -127,6 +128,31 @@ test("checking buttons is on the page", async () => {
     expect(buttons.length).toBe(6);
 });
 
+test("checking buttons have correct class", async () => {
+    render(
+    <LocationContext.Provider value={mockContextValue}>
+        <App />
+    </LocationContext.Provider>
+    );
+    const buttons = screen.getAllByRole("button");
+    buttons.forEach(button => {
+        expect(button).toHaveClass("location-button")
+    })
+});
+
+test("checking buttons have correct names", async () => {
+    render(
+    <LocationContext.Provider value={mockContextValue}>
+        <App />
+    </LocationContext.Provider>
+    );
+    const buttons = screen.getAllByRole("button");
+    const buttonNames = ["Bangkok, Thailand", "Lisbon, Portugal", "Mexico City, Mexico", "Tel Aviv, Israel", "Saigon, Vietnam", "New Orleans, USA"]
+    buttonNames.forEach((name, index) => {
+        expect(buttons[index]).toHaveTextContent(name);
+    })
+});
+
 test("checking title is on the page", async () => {
     render(
     <LocationContext.Provider value={mockContextValue}>
@@ -148,4 +174,16 @@ test("checking footer is on the page", async () => {
     expect(footer).toBeInTheDocument();
     expect(footer.childElementCount).toBe(3);
     expect(footer.localName).toBe("footer");
+});
+
+test("checking link is on the page", async () => {
+
+    render(
+    <LocationContext.Provider value={mockContextValue}>
+        <App />
+    </LocationContext.Provider>
+    );
+    const weatherAPIlink = await screen.findByRole("link", { name: "Open-Meteo" });
+    expect(weatherAPIlink).toHaveAttribute("href", "https://open-meteo.com/");
+    expect(weatherAPIlink).toBeInTheDocument();
 });
