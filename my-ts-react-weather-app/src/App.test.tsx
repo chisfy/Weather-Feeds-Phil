@@ -96,7 +96,7 @@ test("checking logo to be on main page", async () => {
         <App />
     </LocationContext.Provider>
     );
-    const logo: HTMLElement = screen.getByRole("img");
+    const logo: HTMLElement = screen.getByRole("img", {name: "weather-logo"});
     expect(logo).toBeInTheDocument();
 });
 

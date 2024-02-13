@@ -113,7 +113,7 @@ test("checking conversion buttons are on the page and successfully convert", asy
     expect(celBtn).toBeInTheDocument();
 
     const temperatureElement: HTMLElement = await screen.findByText(/Temperature:/);
-    const temperatureText: string | null = temperatureElement.textContent;
+    const temperatureText: string | null = temperatureElement.textContent || "";
     const temperatureValue: number = parseInt(temperatureText.split(' ')[1]);
     const visibilityElement: HTMLElement = await screen.findByText(/Visibility:/);
     expect(temperatureElement.textContent).toContain('°C');
