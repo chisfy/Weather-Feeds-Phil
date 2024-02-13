@@ -30,6 +30,8 @@ Encouraged by my mentor, I undertook the task of creating something with TypeScr
 &nbsp;&nbsp;&nbsp;
 <a href="https://react.dev/"><img src="https://github.com/chisfy/SoC-Shop/assets/137444313/3931383a-9636-4eae-b0bd-ba58b0517597" alt="React_logo" height="100" width="110"/></a>
 &nbsp;&nbsp;&nbsp;
+<a href="https://react.dev/"><img src="https://github.com/chisfy/Weather-Feeds-Phil/assets/137444313/8d6b6669-b5c3-4a21-98cc-bd9d2e2c1e66" alt="ReactTest_logo" height="100" width="110"/></a>
+&nbsp;&nbsp;&nbsp;
 </section>
   
 ## 🏫 Lessons Learned
@@ -39,6 +41,9 @@ Through this, I have strengthened my foundations in React, particularly understa
 </p>
 <p align="center">
 Enhanced understanding of TypeScript and its syntax, especially when used with useContext.
+</p>
+<p align="center">
+Testing! Arrange, Act, Assert. I have learnt the structure of tests and the impact of testing, I can see why this can increase code quality and consistency.
 </p>
 <p align="center">
 Regarding TypeScript, I gained a better understanding of its purpose and how it enhances code quality by eliminating assumptions through explicit data types. This project has underscored for me that TypeScript is indeed a powerful developer tool, especially within a team setting. Its usage promotes code uniformity, ensuring a consistent and cohesive codebase. The experience of encountering red lines prompts a direct confrontation of issues rather than merely ignoring them. This proactive approach, rather than "sweeping problems under the carpet," is essential in a professional or commercial setting, contributing significantly to the development of a higher-quality product.
@@ -55,7 +60,7 @@ Smooth integration of built-in React Hooks such as useState and useContext.
 What could be improved? <br>
 Complexity of app, there's always room for another feature I could implement! Overall, it has been a good introduction to TypeScript.
 CSS styling; improvement and a better approach to positioning elements rather than relying solely on divs.
-Testing; I have yet to implement written tests, relying on developer environment testing and deployment checks.
+Testing; I have now written automated tests with React-Testing-Library however i realised whilst testing I needed more obvious identifiers for elements be it in the role or aria label etc.
 </p>
 
 ## 🎥 Demo
