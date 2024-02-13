@@ -1,9 +1,9 @@
+/* eslint-disable testing-library/no-node-access */
 /* eslint-disable testing-library/no-debugging-utils */
 import React from "react";
-import { render, screen, fireEvent } from "@testing-library/react";
+import { render, screen, fireEvent, waitFor } from "@testing-library/react";
 import '@testing-library/jest-dom/extend-expect';
 import App from "./App";
-import fetchMock from "jest-fetch-mock";
 import { LocationContext } from "./context/locationbuttoncontext";
 
 const mockContextValue = {

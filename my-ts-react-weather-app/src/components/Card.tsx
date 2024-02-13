@@ -175,7 +175,7 @@ return (
   //card shows the data and displays temperature and weather
   <>
   {showCard &&
-    <section className="card" style={{ backgroundImage: backgroundTempImage }}>
+    <section className="card" data-testid="card-section" style={{ backgroundImage: backgroundTempImage }}>
     <button className="close-button" onClick={() => setShowCard(false)}>X</button>
     <h3 className="card-title">{locations[index].city}, {locations[index].country}</h3>
     <div className="card-image">
