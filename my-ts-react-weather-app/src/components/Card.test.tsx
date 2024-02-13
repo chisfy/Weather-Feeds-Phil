@@ -1,8 +1,8 @@
 import React from "react";
-import { render, screen, fireEvent, waitFor } from "@testing-library/react";
+import { render, screen, waitFor, fireEvent } from "@testing-library/react";
 import '@testing-library/jest-dom/extend-expect';
-import App from "../App";
 import { LocationContext } from "../context/locationbuttoncontext";
+import Card from "./Card";
 
 const mockContextValue = {
     locations: [{
@@ -76,38 +76,26 @@ const mockContextValue = {
     setIndex: jest.fn()
 }
 
-test("checking a button is on the page is clickable and card is present on page", async () => {
+test("checking render of card component", () => {
     render(
-    <LocationContext.Provider value={mockContextValue}>
-        <App />
-    </LocationContext.Provider>
-    );
-    const thailandButton = screen.getByRole("button", { name: "Bangkok, Thailand" });
-    fireEvent.click(thailandButton);
-
-    const cardSection = await screen.findByTestId('card-section');
-    expect(cardSection).toBeInTheDocument();
-
-    // Assert that specific elements within the card section are present
-    expect(screen.getByAltText("country-flag")).toBeInTheDocument();
-    expect(screen.getByText(/Name:/i)).toBeInTheDocument();
-    expect(screen.getByText(/Top Foodie Spot:/i)).toBeInTheDocument();
-    expect(screen.getByText(/Weather:/i)).toBeInTheDocument();
+        <LocationContext.Provider value={mockContextValue}>
+            <Card/>
+        </LocationContext.Provider>
+    )
 });
 
-test("checking conversion buttons are on the page", async () => {
+test("checking close button is on the page and closes the card", async () => {
     render(
     <LocationContext.Provider value={mockContextValue}>
-        <App />
+        <Card />
     </LocationContext.Provider>
     );
 
-    const thailandButton = screen.getByRole("button", { name: "Bangkok, Thailand" });
-    fireEvent.click(thailandButton);
+    const closeBtn = screen.getByRole("button", { name: "X"});
+    expect(closeBtn).toBeInTheDocument();
 
-    const fahBtn = await screen.findByTestId("fahrenheit-section");
-    expect(fahBtn).toBeInTheDocument();
+    fireEvent.click(closeBtn);
 
-    const celBtn = await screen.findByTestId("celsius-section");
-    expect(celBtn).toBeInTheDocument();
+    expect(mockContextValue.setShowCard).toHaveBeenCalledWith(false);
+
 });

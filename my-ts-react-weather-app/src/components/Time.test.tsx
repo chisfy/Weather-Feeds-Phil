@@ -1,6 +1,6 @@
 /* eslint-disable testing-library/no-debugging-utils */
 import React from "react";
-import { render, screen, fireEvent, waitFor } from "@testing-library/react";
+import { render, screen, waitFor } from "@testing-library/react";
 import '@testing-library/jest-dom/extend-expect';
 import Time from "./Time";
 
