@@ -176,7 +176,7 @@ return (
   <>
   {showCard &&
     <section className="card" data-testid="card-section" style={{ backgroundImage: backgroundTempImage }}>
-    <button className="close-button" onClick={() => setShowCard(false)}>X</button>
+    <button className="close-button" data-testid="close-section" onClick={() => setShowCard(false)}>X</button>
     <h3 className="card-title">{locations[index].city}, {locations[index].country}</h3>
     <div className="card-image">
     <img src={locations[index].flag} height={60} width={60} alt="country-flag" />
@@ -206,8 +206,8 @@ return (
     )}
     </div>
     <div className="convert-buttons">
-    <button className="conversion-button" onClick={() => convertToFahrenheit()} disabled={isFahrenheitButtonDisabled}>°F</button>
-    <button className="conversion-button" onClick={() => convertToCelcius()} disabled={isCelciusButtonDisabled}>°C</button>
+    <button className="conversion-button" data-testid="fahrenheit-section" onClick={() => convertToFahrenheit()} disabled={isFahrenheitButtonDisabled}>°F</button>
+    <button className="conversion-button" data-testid="celsius-section" onClick={() => convertToCelcius()} disabled={isCelciusButtonDisabled}>°C</button>
     </div>
     </section>}
     </>
