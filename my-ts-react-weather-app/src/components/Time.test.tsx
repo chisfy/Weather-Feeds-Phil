@@ -16,10 +16,10 @@ test("checking component works as intended by updating by the time", async () =>
         <Time />
     );
     
-    const currentTime = new Date().toLocaleTimeString();
+    const currentTime: string = new Date().toLocaleTimeString();
 
     await waitFor(() => {
-        const time = screen.getByText(currentTime)
+        const time: HTMLElement = screen.getByText(currentTime)
         expect(time).toBeInTheDocument();
     })
 

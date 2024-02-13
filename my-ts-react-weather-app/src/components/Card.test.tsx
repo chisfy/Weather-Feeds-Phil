@@ -91,7 +91,7 @@ test("checking close button is on the page and closes the card", async () => {
     </LocationContext.Provider>
     );
 
-    const closeBtn = screen.getByRole("button", { name: "X"});
+    const closeBtn: HTMLElement = screen.getByRole("button", { name: "X"});
     expect(closeBtn).toBeInTheDocument();
 
     fireEvent.click(closeBtn);
@@ -107,13 +107,12 @@ test("checking conversion buttons are on the page", async () => {
     </LocationContext.Provider>
     );
 
-    const fahBtn = await screen.findByRole("button", { name: "°F" });
+    const fahBtn: HTMLElement = await screen.findByRole("button", { name: "°F" });
     expect(fahBtn).toBeInTheDocument();
 
-    const celBtn = await screen.findByRole("button", { name: "°C" })
+    const celBtn: HTMLElement = await screen.findByRole("button", { name: "°C" })
     expect(celBtn).toBeInTheDocument();
     expect(celBtn).toBeDisabled();
-
 
     fireEvent.click(fahBtn);
     expect(celBtn).not.toBeDisabled();

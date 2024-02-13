@@ -1,5 +1,5 @@
 import React from "react";
-import { render, screen, fireEvent, waitFor } from "@testing-library/react";
+import { render, screen, fireEvent } from "@testing-library/react";
 import '@testing-library/jest-dom/extend-expect';
 import App from "../App";
 import { LocationContext } from "../context/locationbuttoncontext";
@@ -82,32 +82,48 @@ test("checking a button is on the page is clickable and card is present on page"
         <App />
     </LocationContext.Provider>
     );
-    const thailandButton = screen.getByRole("button", { name: "Bangkok, Thailand" });
+    const thailandButton: HTMLElement = screen.getByRole("button", { name: "Bangkok, Thailand" });
     fireEvent.click(thailandButton);
 
-    const cardSection = await screen.findByTestId('card-section');
+    const cardSection: HTMLElement = await screen.findByTestId('card-section');
     expect(cardSection).toBeInTheDocument();
 
     // Assert that specific elements within the card section are present
     expect(screen.getByAltText("country-flag")).toBeInTheDocument();
+    expect(screen.getByRole("heading", {name: "Bangkok, Thailand"})).toBeInTheDocument();
     expect(screen.getByText(/Name:/i)).toBeInTheDocument();
     expect(screen.getByText(/Top Foodie Spot:/i)).toBeInTheDocument();
     expect(screen.getByText(/Weather:/i)).toBeInTheDocument();
 });
 
-test("checking conversion buttons are on the page", async () => {
+test("checking conversion buttons are on the page and successfully convert", async () => {
     render(
     <LocationContext.Provider value={mockContextValue}>
         <App />
     </LocationContext.Provider>
     );
 
-    const thailandButton = screen.getByRole("button", { name: "Bangkok, Thailand" });
+    const thailandButton: HTMLElement = screen.getByRole("button", { name: "Bangkok, Thailand" });
     fireEvent.click(thailandButton);
 
-    const fahBtn = await screen.findByTestId("fahrenheit-section");
+    const fahBtn: HTMLElement = await screen.findByRole("button", { name: "°F" })
     expect(fahBtn).toBeInTheDocument();
 
-    const celBtn = await screen.findByTestId("celsius-section");
+    const celBtn: HTMLElement = await screen.findByRole("button", { name: "°C" })
     expect(celBtn).toBeInTheDocument();
+
+    const temperatureElement: HTMLElement = await screen.findByText(/Temperature:/);
+    const temperatureText: string | null = temperatureElement.textContent;
+    const temperatureValue: number = parseInt(temperatureText.split(' ')[1]);
+    const visibilityElement: HTMLElement = await screen.findByText(/Visibility:/);
+    expect(temperatureElement.textContent).toContain('°C');
+    expect(visibilityElement.textContent).not.toBe('');
+
+    const fahrenheitValue: number = (temperatureValue * 9) / 5 + 32;
+    fireEvent.click(fahBtn);
+
+    expect(temperatureElement.textContent).toContain(`Temperature: ${Math.round(fahrenheitValue)}`);
+    expect(temperatureElement.textContent).not.toContain('°C');
+    expect(temperatureElement.textContent).toContain('°F');
+    expect(visibilityElement.textContent).not.toBe('');
 });

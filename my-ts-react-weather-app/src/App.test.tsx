@@ -4,9 +4,9 @@ import React from "react";
 import { render, screen, fireEvent, waitFor } from "@testing-library/react";
 import '@testing-library/jest-dom/extend-expect';
 import App from "./App";
-import { LocationContext } from "./context/locationbuttoncontext";
+import { LocationContext, LocationContextValue } from "./context/locationbuttoncontext";
 
-const mockContextValue = {
+const mockContextValue: LocationContextValue = {
     locations: [{
         longitude: 100.5014,
         latitude: 13.754,
@@ -67,15 +67,15 @@ const mockContextValue = {
         description: "Chef Leah Chase has been cooking for over 70 years at Dooky Chase. She is the New Orleans creole cuisine legend and serves a delicious gumbo.",
         address: "2301 Orleans Ave, New Orleans, LA 70119, United States"
       }],
-    setLocations: jest.fn(),
-    longitude: 0,
-    setLongitude: jest.fn(),
-    latitude: 0,
-    setLatitude: jest.fn(),
-    showCard: false,
-    setShowCard: jest.fn(),
-    index: 0,
-    setIndex: jest.fn()
+      setLocations: jest.fn(),
+      longitude: 0,
+      setLongitude: jest.fn(),
+      latitude: 0,
+      setLatitude: jest.fn(),
+      showCard: false,
+      setShowCard: jest.fn(),
+      index: 0,
+      setIndex: jest.fn(),
 }
 
 test("basic test", () => {
@@ -96,7 +96,7 @@ test("checking logo to be on main page", async () => {
         <App />
     </LocationContext.Provider>
     );
-    const logo = screen.getByRole("img");
+    const logo: HTMLElement = screen.getByRole("img");
     expect(logo).toBeInTheDocument();
 });
 
@@ -115,7 +115,7 @@ test("checking main is on the page", async () => {
         <App />
     </LocationContext.Provider>
     );
-    const main = screen.getByRole("main");
+    const main: HTMLElement = screen.getByRole("main");
     expect(main).toBeInTheDocument();
 });
 
@@ -125,7 +125,7 @@ test("checking buttons is on the page", async () => {
         <App />
     </LocationContext.Provider>
     );
-    const buttons = screen.getAllByRole("button");
+    const buttons: HTMLElement[] = screen.getAllByRole("button");
     expect(buttons.length).toBe(6);
 });
 
@@ -135,7 +135,7 @@ test("checking buttons have correct class", async () => {
         <App />
     </LocationContext.Provider>
     );
-    const buttons = screen.getAllByRole("button");
+    const buttons: HTMLElement[] = screen.getAllByRole("button");
     buttons.forEach(button => {
         expect(button).toHaveClass("location-button")
     })
@@ -147,8 +147,8 @@ test("checking buttons have correct names", async () => {
         <App />
     </LocationContext.Provider>
     );
-    const buttons = screen.getAllByRole("button");
-    const buttonNames = ["Bangkok, Thailand", "Lisbon, Portugal", "Mexico City, Mexico", "Tel Aviv, Israel", "Saigon, Vietnam", "New Orleans, USA"]
+    const buttons: HTMLElement[] = screen.getAllByRole("button");
+    const buttonNames: string[] = ["Bangkok, Thailand", "Lisbon, Portugal", "Mexico City, Mexico", "Tel Aviv, Israel", "Saigon, Vietnam", "New Orleans, USA"]
     buttonNames.forEach((name, index) => {
         expect(buttons[index]).toHaveTextContent(name);
     })
@@ -160,7 +160,7 @@ test("checking title is on the page", async () => {
         <App />
     </LocationContext.Provider>
     );
-    const title = screen.getByText("Weather Feeds Phil!");
+    const title: HTMLElement = screen.getByText("Weather Feeds Phil!");
     expect(title).toBeInTheDocument();
     expect(title.outerHTML).toBe("<strong>Weather Feeds Phil!</strong>")
 });
@@ -171,7 +171,7 @@ test("checking footer is on the page", async () => {
         <App />
     </LocationContext.Provider>
     );
-    const footer = screen.getByRole("contentinfo");
+    const footer: HTMLElement = screen.getByRole("contentinfo");
     expect(footer).toBeInTheDocument();
     expect(footer.childElementCount).toBe(3);
     expect(footer.localName).toBe("footer");
@@ -184,7 +184,7 @@ test("checking link is on the page", async () => {
         <App />
     </LocationContext.Provider>
     );
-    const weatherAPIlink = await screen.findByRole("link", { name: "Open-Meteo" });
+    const weatherAPIlink: HTMLElement = await screen.findByRole("link", { name: "Open-Meteo" });
     expect(weatherAPIlink).toHaveAttribute("href", "https://open-meteo.com/");
     expect(weatherAPIlink).toBeInTheDocument();
     fireEvent.click(weatherAPIlink);
