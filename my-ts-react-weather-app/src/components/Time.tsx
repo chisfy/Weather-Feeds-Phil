@@ -5,9 +5,7 @@ export default function Time(): React.JSX.Element {
 const [liveTime, setLiveTime] = useState<string>(new Date().toLocaleTimeString());
 
 useEffect(() => {
-
   setInterval(setCurrentTime, 1000);
-
 })
 
 function setCurrentTime(): void {
