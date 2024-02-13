@@ -97,5 +97,26 @@ test("checking close button is on the page and closes the card", async () => {
     fireEvent.click(closeBtn);
 
     expect(mockContextValue.setShowCard).toHaveBeenCalledWith(false);
+});
+
+test("checking conversion buttons are on the page", async () => {
+
+    render(
+    <LocationContext.Provider value={mockContextValue}>
+        <Card />
+    </LocationContext.Provider>
+    );
+
+    const fahBtn = await screen.findByRole("button", { name: "°F" });
+    expect(fahBtn).toBeInTheDocument();
+
+    const celBtn = await screen.findByRole("button", { name: "°C" })
+    expect(celBtn).toBeInTheDocument();
+    expect(celBtn).toBeDisabled();
+
+
+    fireEvent.click(fahBtn);
+    expect(celBtn).not.toBeDisabled();
+    expect(fahBtn).toBeDisabled();
 
 });
