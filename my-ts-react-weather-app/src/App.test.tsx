@@ -186,4 +186,5 @@ test("checking link is on the page", async () => {
     const weatherAPIlink = await screen.findByRole("link", { name: "Open-Meteo" });
     expect(weatherAPIlink).toHaveAttribute("href", "https://open-meteo.com/");
     expect(weatherAPIlink).toBeInTheDocument();
+    fireEvent.click(weatherAPIlink);
 });
